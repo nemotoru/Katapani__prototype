@@ -613,7 +613,7 @@ if (recognition){
 
 /* ===== 3) メイン処理 ===== */
 async function handleUtterance(text){
-  const words = (text.match(/[ァ-ヴー]+/g)||[]).map(w=>w.trim());
+  const words = (text.match(/[ァ-ヴー]+|[A-Za-z]{2,6}/g) || []).map(w => w.trim().toUpperCase());
   const uniq = [...new Set(words)];
   const meaningMap = {};
   for (const w of uniq){
